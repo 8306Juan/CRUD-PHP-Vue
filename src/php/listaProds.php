@@ -33,6 +33,12 @@ switch ($opcion) {
 				}
 
 		break;
+
+	case 'eliminar':
+		$idP = $axiosData->idP;
+		$query = mysqli_query($conexion, "DELETE FROM `productos` WHERE id=$idP");
+		echo "Producto Eliminado de manera Exitosa!";
+		break;
 	
 	default:
 		# code...

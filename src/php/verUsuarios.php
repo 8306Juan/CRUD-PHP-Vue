@@ -14,12 +14,15 @@ switch ($opcion) {
 		$email = $axiosData->email;
 		$pass = $axiosData->pass;
 		$query=mysqli_query($conexion,"SELECT * FROM `usuarios` WHERE email='$email'");
+
+		// FALTA VERIFICAR LOS DATOS POR SEPARADO
+
 		$rta = mysqli_fetch_array($query);
 		$iguales = password_verify($pass, $rta[3]);
 		if ($iguales){
-			echo "TRUE";
+			echo "Todo Bien bb";
 		}else{
-			echo "FALSE";
+			echo "mmmm revise los datos ingresados";
 		}
 
 		break;

@@ -7,9 +7,9 @@
 
 			<label><b>Precio: </b></label><input type="number" class="col-span-2 bg-white mb-3 rounded-xl w-3/4 pl-4" v-model="precio">
 
-			<button @click="agregar" class="col-start-2 bg-green-300 rounded-2xl w-1/2 m-auto">Agregar</button>
+			<button @click="agregar" @keyup.enter="agregar" class="col-start-2 bg-green-300 rounded-2xl w-1/2 m-auto">Agregar</button>
 		</div>
-		<div>{{respuesta}}</div>
+		<div class=" bg-yellow-500 mt-24 text-2xl w-1/2 p-3 m-auto rounded-2xl">{{respuesta}}</div>
 	</div>
 </template>
 
@@ -30,7 +30,7 @@
 			agregar(){
 
 				let urlPHP = 'http://localhost/Vue.js/miniCurso/Vue-CLI/php-vue/src/php/listaProds.php';
-				
+
 				axios.post(urlPHP,{
 					opcion: 'agregar',
 					nombre: this.nombre,
@@ -38,9 +38,10 @@
 					precio: this.precio
 				})
 					.then((function (response) {
+						
 						this.respuesta = response.data;
-  					}).bind(this));
 
+  					}).bind(this));  				
 			}
 		}
 	}
