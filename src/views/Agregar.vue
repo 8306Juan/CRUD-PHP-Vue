@@ -29,7 +29,9 @@
 		methods:{
 			agregar(){
 
-				axios.post('http://localhost/Vue.js/miniCurso/Vue-CLI/php-vue/src/php/listaProds.php',{
+				let urlPHP = 'http://localhost/Vue.js/miniCurso/Vue-CLI/php-vue/src/php/listaProds.php';
+				
+				axios.post(urlPHP,{
 					opcion: 'agregar',
 					nombre: this.nombre,
 					marca: this.marca,
